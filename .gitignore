@@ -1,0 +1,6 @@
+#Ignore node modules & environment variables 
+node-postgres/backend/node_modules
+node-postgres/backend/.env
+
+# Ignore operating system-specific files
+.DS_Store
