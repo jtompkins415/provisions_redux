@@ -1,4 +1,4 @@
-// Class to handlle user CRUD
+// Class to handlle users table CRUD
 const db = require("../db");
 
 class User {
@@ -28,11 +28,8 @@ class User {
         };
 
         const userData = result.rows[0];
-        const user = new User(userData.id, userData.username, userData.email, userData.first_name, userData.last_name, userData.password, userData.city, userData.state);
-
-        Object.assign(user, userData);
         
-        return user;
+        return new User(userData.id, userData.username, userData.email, userData.first_name, userData.last_name, userData.password, userData.city, userData.state);
     };
 
     //CREATE USER
@@ -44,7 +41,7 @@ class User {
     };
 
     //UPDATE USER
-    static async updateUser(field, value){
+    async updateUserField(field, value){
         const validFields = ['username', 'email', 'first_name', 'last_name', 'password', 'city', 'state'];
 
         if(!validFields.includes(field)){
@@ -56,7 +53,7 @@ class User {
     };
 
     //DELETE USER
-    static async deleteUser(){
+    async deleteUser(){
         await db.query(`DELETE FROM users WHERE id=$1`, [this.id]);
     }
     
