@@ -49,10 +49,11 @@ router.patch('/update/:id/:field', upload.none(), async function(req, res, next)
     try {
         const id = req.params.id;
         const field = req.params.field;
-        const {newValue} = req.body;
+        //Dynamically  use the field parameter as the key to destructure from `req.body`
+        const {[field]: newValue} = req.body;
 
-        const userToUpdate = await User.getUserById(id);
-        await userToUpdate.updateUser(field, newValue);
+        const userToUpdate = await User.getUserById(id)
+        userToUpdate.updateUserField(field, newValue);
 
         return res.status(200).json({message: `${field} updated successfully `});
     } catch (err) {
@@ -61,7 +62,7 @@ router.patch('/update/:id/:field', upload.none(), async function(req, res, next)
 })
 
 //DELETE USER
-router.delete('/:id', async function(req, res, next){
+router.delete('/remove/:id', async function(req, res, next){
     try {
         const {id} = req.params;
         const userToDelete = await User.getUserById(id);
