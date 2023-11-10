@@ -2,8 +2,11 @@
 
 const express = require('express');
 const User = require('../models/userModel');
+
+//Import multer to parse form data directly from request body
 const multer = require('multer');
 const upload = multer();
+
 const router = new express.Router();
 
 
