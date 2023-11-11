@@ -31,7 +31,7 @@ router.get('/:id', async function(req, res, next){
 //CREATE BEER
 router.post('/create', upload.none(), async function(req, res, next){
     try {
-        const {beer_name, beer_label, brewery, beer_style, price, description} = req.body;
+        const {beer_name, beer_label, brewery, beer_style, price, beer_abv, description} = req.body;
         const newBeer = await Beer.createBeer(beer_name, beer_label, brewery, beer_style, price, beer_abv, description);
         return res.status(201).json(newBeer);
     } catch (err) {
