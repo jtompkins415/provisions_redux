@@ -53,9 +53,11 @@ router.patch('/update/:id/:field', upload.none(), async function(req, res, next)
         const {[field]: newValue} = req.body;
 
         const userToUpdate = await User.getUserById(id)
-        userToUpdate.updateUserField(field, newValue);
+        await userToUpdate.updateUserField(field, newValue);
 
-        return res.status(200).json({message: `${field} updated successfully `});
+        return res.status(200).json({
+            message: `${field} updated successfully`, userToUpdate
+        });
     } catch (err) {
         return next(err);
     }
