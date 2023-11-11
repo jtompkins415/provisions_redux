@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 
 const userRoutes = require('../backend/routes/userRoutes');
 const foodsRoutes = require('../backend/routes/foodsRoutes');
+const beerRoutes = require('../backend/routes/beersRoutes');
 
 dotenv.config();
 
@@ -14,9 +15,11 @@ const port = process.env.SERVER_PORT;
 app.use(express.json());
 
 //connection to user routes
-app.use('/users', userRoutes)
+app.use('/users', userRoutes);
 //connection to food routes
-app.use('/foods/', foodsRoutes);
+app.use('/foods', foodsRoutes);
+//connection to beer routes
+app.use('/beers', beerRoutes);
 
 app.get('/', (req, res) => {
     res.status(200).send('Hello World!');
