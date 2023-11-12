@@ -52,5 +52,22 @@ class Wine {
         return new Wine(id, wine_name, winery, wine_style, vintage, price, abv, description);
     };
 
-    
-}
+    //UPDATE WINE
+    async updateWine(field, value){
+        const validFields = ['wine_name', 'winery', 'wine_style', 'vintage', 'price', 'abv', 'description'];
+
+        if(!validFields.includes(field)){
+            throw new Error('INVALID FIELD TO UPDATE');
+        }
+
+        const updateQuery = `UPDATE wines SET ${field}=$1 WHERE id=$2`;
+        await db.query(updateQuery, [value, this.id]);
+    };
+
+    //DELETE WINE
+    async deleteWine(){
+        await db.query(`DELETE FROM wines WHERE id=$1`, [this.id]);
+    };
+};
+
+module.exports = Wine;
