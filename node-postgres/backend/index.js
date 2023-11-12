@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const userRoutes = require('../backend/routes/userRoutes');
 const foodsRoutes = require('../backend/routes/foodsRoutes');
 const beerRoutes = require('../backend/routes/beersRoutes');
+const winesRoutes = require('./routes/winesRoutes');
 
 dotenv.config();
 
@@ -20,6 +21,8 @@ app.use('/users', userRoutes);
 app.use('/foods', foodsRoutes);
 //connection to beer routes
 app.use('/beers', beerRoutes);
+//connection to wines routes
+app.use('/wines', winesRoutes);
 
 app.get('/', (req, res) => {
     res.status(200).send('Hello World!');
