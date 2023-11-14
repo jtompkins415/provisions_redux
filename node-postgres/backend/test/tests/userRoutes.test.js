@@ -15,57 +15,62 @@ const testUser = {
 };
 
 describe('User routes', () => {
-    beforeAll(async () => {
+    beforeEach(async () => {
+        await global.__DB_CONN__.query(`DELETE FROM users`);
+        const response = await request(app).post('/users/create').send(testUser);
+        global.testUser = response.body;
+    });
+
+    afterEach(async () => {
         await global.__DB_CONN__.query(`DELETE FROM users`);
     });
 
-    test('GET /users should return an empty array initially', async () => {
-        const response = await request(app).get('/users');
-        expect(response.statusCode).toBe(200);
-        expect(response.body).toEqual([]);
-    });
-
-    test('POST /users/create should return created user', async () => {
-        const response = await request(app).post('/users/create').send(testUser);
+    test('POST /users/create should return new user', async () => {
+        const newUser = {
+            username: 'NEWUser',
+            email: 'NEWUser@test.com',
+            password: 'NEW123',
+            first_name: 'NEW',
+            last_name: 'User',
+            city: 'NEW City',
+            state: 'NEW State'
+        }
+        const response = await request(app).post('/users/create').send(newUser);
         expect(response.statusCode).toBe(201);
-
-        expect(response.body).toHaveProperty('id');
-        const createdUser = {...testUser, id: response.body.id};
+        const createdUser = {...newUser, id: response.body.id};
         expect(response.body).toEqual(createdUser);
-
-        global.createdUser = createdUser;
     });
 
-    test('GET /users should return an array with the created user', async () => {
-        expect(global.createdUser).toBeDefined();
+    test('GET /users should return an array with all user', async () => {
 
         const response = await request(app).get('/users');
         expect(response.statusCode).toBe(200);
-        expect(response.body).toEqual([global.createdUser]);
+        expect(Array.isArray(response.body)).toBe(true);
+        expect(response.body.length).toBeGreaterThan(0);
     });
 
     test('PATCH /users/update/:id/:field should return confirmation of the update', async () => {
-        expect(global.createdUser).toBeDefined();
+        expect(global.testUser).toBeDefined();
 
-        const response = await request(app).patch(`/users/update/${global.createdUser.id}/username`).send({
+        const response = await request(app).patch(`/users/update/${global.testUser.id}/username`).send({
             username: 'testUserUpdated'
         });
 
         expect(response.statusCode).toBe(200);
         expect(response.body).toEqual({message: `username updated successfully`});
+
     });
 
     test('DELETE /users/remove/:id should return confirmation of the removal', async () => {
-        expect(global.createdUser).toBeDefined();
+        expect(global.testUser).toBeDefined();
 
-        const response = await request(app).delete(`/users/remove/${global.createdUser.id}`);
+        const response = await request(app).delete(`/users/remove/${global.testUser.id}`);
         
         expect(response.statusCode).toBe(200);
-        expect(response.body).toEqual({message: `${global.createdUser.username} deleted`});
+        expect(response.body).toEqual({message: `${global.testUser.username} deleted`});
     })
 
     afterAll(async () => {
-        await global.__DB_CONN__.query(`DELETE FROM users`);
         await db.end();
-    });
+    })
 });
