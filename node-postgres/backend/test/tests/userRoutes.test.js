@@ -1,6 +1,5 @@
 const request = require('supertest');
 const db = require('../../db');
-const User = require('../../models/userModel');
 const app = require('../../app');
 
 
@@ -47,6 +46,17 @@ describe('User routes', () => {
         expect(response.statusCode).toBe(200);
         expect(Array.isArray(response.body)).toBe(true);
         expect(response.body.length).toBeGreaterThan(0);
+
+        //Ensure all instances have required fields
+        response.body.forEach((user) => {
+            expect(user).toHaveProperty('username');
+            expect(user).toHaveProperty('email');
+            expect(user).toHaveProperty('password');
+            expect(user).toHaveProperty('first_name');
+            expect(user).toHaveProperty('last_name');
+            expect(user).toHaveProperty('city');
+            expect(user).toHaveProperty('state');
+        })
     });
 
     test('PATCH /users/update/:id/:field should return confirmation of the update', async () => {
