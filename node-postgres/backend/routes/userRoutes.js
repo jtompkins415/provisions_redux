@@ -37,7 +37,6 @@ router.post('/create', upload.none(), async function(req, res, next){
     try {
         const {username, email, password, first_name, last_name, city, state } = req.body;
         let newUser = await User.createUser(username, email, first_name, last_name, password, city, state);
-        console.log(newUser);
         return res.status(201).json(newUser);
     } catch (err) {
         return next(err)
@@ -54,10 +53,8 @@ router.patch('/update/:id/:field', upload.none(), async function(req, res, next)
 
         const userToUpdate = await User.getUserById(id)
         await userToUpdate.updateUserField(field, newValue);
-
         return res.status(200).json({
-            message: `${field} updated successfully`, userToUpdate
-        });
+            message: `${field} updated successfully`});
     } catch (err) {
         return next(err);
     }
