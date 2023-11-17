@@ -51,7 +51,7 @@ router.patch('/update/:id/:field', upload.none(), async function(req, res, next)
         await foodItemToUpdate.updateFoodItem(field, newValue);
 
         return res.status(200).json({
-            message: `${field} updated successfully`, foodItemToUpdate
+            message: `${field} updated successfully`
         });
     } catch (err) {
         return next(err);
@@ -65,7 +65,7 @@ router.delete('/remove/:id', async function(req, res, next){
         const foodItemToDelete = await FoodItem.getFoodItemById(id);
 
         await foodItemToDelete.deleteFoodItem();
-        return res.status(200).json({message: `${foodItemToDelete.name} removed successfully`, foodItemToDelete});
+        return res.status(200).json({message: `${foodItemToDelete.name} removed successfully`});
     } catch (err) {
         return next(err);
     }
