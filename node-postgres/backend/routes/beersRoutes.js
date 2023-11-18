@@ -63,7 +63,7 @@ router.delete('/remove/:id', async function (req, res, next){
         const beerToDelete = await Beer.getBeerById(id);
         await beerToDelete.deleteBeer();
 
-        return res.status(200).json({message: `${beerToDelete.beer_name} has been removed succesfully`});
+        return res.status(200).json({message: `${beerToDelete.beer_name} removed successfully`});
 
     } catch ({err}) {
         return next(err);
