@@ -1,0 +1,39 @@
+#nav-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
+    margin-bottom: 2rem;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+}
+
+#icon-container {
+    position: absolute;
+    top: 1.3rem;
+    left: 3rem;
+}
+
+#nav-icon{
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: #272343;
+}
+
+#nav-links-container{
+    position: absolute;
+    top: 1.3rem;
+    right: 4rem;
+}
+
+#nav-links-container .nav-link {
+    margin: .5rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #272343;
+    transition: color.2s ease-in;
+}
+
+#nav-links-container .nav-link:hover {
+    color: #7D3C4B;
+}

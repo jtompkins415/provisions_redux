@@ -1,18 +1,21 @@
 import {Link} from '@mui/material/';
+import './NavBar.css';
 
 function NavBar(){
     return (
-        <>
-            <div className='icon-container'>
-                <span className='icon'>Provisions</span>
+       <div id='nav-main-container'>
+            <div id='icon-container'>
+                <span id='nav-icon'>Provisions</span>
             </div>
-            <div className='nav-links-container'>
+            <div id='nav-links-container'>
                 <Link href='/' className='nav-link'>Home</Link>
                 <Link href='/about' className='nav-link'>About</Link>
                 <Link href='/shop' className='nav-link'>Shop</Link>
                 <Link href='/login' className='nav-link'>Login</Link>
             </div>
-        </>
+       </div>
+            
+        
     );
 }
 
