@@ -21,28 +21,29 @@ To run this application on your local machine, follow these steps:
 
 ### Installation
 
-1. Clone this repository to your local machine:
-2. Set up a PostgreSQL database. Make sure you have the database connection details handy.
-
-### Installation
-
 1. Clone this repository to your local machine.
 
-2. Install server dependencies.
+2. Navigate to the `server` directory.
 
-3. Create a `.env` file in the `server` directory with your database connection details.
+3. Install server dependencies.
 
-4. Migrate and seed the database.
+4. Create a `.env` file in the `server` directory with your database connection details.
 
-5. Start the server.
+5. Migrate and seed the database.
 
-6. In a new terminal window, navigate to the `client` directory.
+6. Start the server.
 
-7. Install client dependencies.
+7. In a new terminal window, navigate to the `client` directory.
 
-8. Start the client.
+8. Install client dependencies.
+
+9. Start the client using Vite.
 
 Your Online Storefront Application should now be running locally.
+
+## Frontend Development
+
+The frontend of this project is scaffolded using Vite and utilizes React with Material-UI for the user interface. React-Router-DOM is employed for client-side routing.
 
 ## Contributing
 
@@ -58,3 +59,5 @@ This project is licensed under the MIT License.
 - [React](https://reactjs.org/)
 - [Material-UI](https://material-ui.com/)
 - [PostgreSQL](https://www.postgresql.org/)
+- [Vite](https://vitejs.dev/)
+- [React-Router-DOM](https://reactrouter.com/web/guides/quick-start)
