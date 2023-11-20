@@ -4,16 +4,16 @@ import './Home.css';
 function Home(){
     
     return (
-        <>
-            <div className="home-title-container">
+        <div id='home-main-container'>
+            <div id="home-title-container">
                 <h1 id="home-title">Provisons</h1>
                 <h2 id="home-subtitle">Artisinal Foods, Craft Beers, & Natural Wines</h2>
             </div>
 
-            <div className="home-shop-button-container">
-                <Button variant="contained" href='/shop'>Shop Now</Button>
+            <div id="home-shop-button-container">
+                <Button id="home-shop-button" variant="contained" href='/shop' >Shop Now</Button>
             </div>
-        </>
+        </div>
     );
 }
 
