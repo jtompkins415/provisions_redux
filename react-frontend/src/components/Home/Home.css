@@ -1,0 +1,14 @@
+.home-title-container {
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    color: #7D3C4B;
+}
+
+#home-title {
+    font-weight: 300;
+}
+
+#home-subtitle {
+    font-weight: 300;
+    font-style: italic;
+}
