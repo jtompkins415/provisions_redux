@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 const userRoutes = require('./routes/userRoutes');
 const foodsRoutes = require('./routes/foodsRoutes');
@@ -8,6 +9,8 @@ const winesRoutes = require('./routes/winesRoutes');
 
 //enable JSON parsing
 app.use(express.json());
+//enable CORS
+app.use(cors());
 
 //connection to user routes
 app.use('/users', userRoutes);
