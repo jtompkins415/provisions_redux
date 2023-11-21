@@ -12,6 +12,7 @@ const router = new express.Router();
 
 //GET ALL USERS
 router.get('/', async function(req, res, next){
+    console.log('Request of users heard')
     try {
         let users = await User.getAllUsers();
         return res.status(200).json(users);
