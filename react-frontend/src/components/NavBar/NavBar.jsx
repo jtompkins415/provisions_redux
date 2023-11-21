@@ -12,6 +12,7 @@ function NavBar(){
                 <Link href='/about' className='nav-link'>About</Link>
                 <Link href='/shop' className='nav-link'>Shop</Link>
                 <Link href='/login' className='nav-link'>Login</Link>
+                <Link href='/login' className='nav-link'>Sign-up</Link>
             </div>
        </div>
             

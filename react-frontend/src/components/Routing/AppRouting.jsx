@@ -2,13 +2,13 @@
 
 import {Routes, Route} from 'react-router-dom';
 import Home from '../Home/Home';
-import Users from '../Users/User';
+import LoginForm from '../LoginForm/LoginForm';
 
 function AppRouting(){
     return (
         <Routes>
             <Route exact path='/' element={<Home />} />
-            <Route exact path='/users' element={<Users/>} />
+            <Route exact path='/login' element={<LoginForm />} />
         </Routes>
     );
 }
