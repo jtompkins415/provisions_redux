@@ -20,9 +20,9 @@ class User {
         return result.rows.map(user => new User(user.id, user.username, user.email, user.first_name, user.last_name, user.password, user.city, user.state));
     }
 
-    //GET USER BY ID
-    static async getUserById(id){
-        const result = await db.query(`SELECT * FROM users WHERE id = $1`, [id]);
+    //GET USER BY USERNAME
+    static async getUserByUsername(username){
+        const result = await db.query(`SELECT * FROM users WHERE username = $1`, [username]);
         if(result.rows.length === 0){
             throw new Error('INVALID USER!');
         };
