@@ -1,0 +1,63 @@
+#login-form-container {
+    height: 75%;
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/artisan-market-shelves.jpeg');
+}
+
+#background-color {
+    width: 50%;
+    height: 50%;
+    background-color: #f9f6eed4;
+    padding: 4rem;
+    margin: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+}
+
+#form-title-container {
+    margin: 2rem;
+}
+
+#form-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 3rem;
+    letter-spacing: .25rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    color:#272343;
+}
+
+#login-form {
+    padding: 1.5rem;
+    border: .5px solid #272343;
+}
+
+#form-input-containers {
+    display: flex;
+    flex-direction: column;
+}
+
+#form-input-containers .form-input {
+    margin: .75rem;
+}
+
+#login-submit{
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: .25rem;
+    text-transform: uppercase;
+    background-color: #D2ABB4;
+    color: #F9F6EE;
+    box-shadow: 1px 1px 1px 1px #2723438f ;
+}
+
+#login-submit:hover {
+    color: #7D3C4B;
+    border: none;
+}
