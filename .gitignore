@@ -1,6 +1,6 @@
 #Ignore node modules & environment variables 
 node-postgres/backend/node_modules
-node-postgres/backend/.env
+*.env
 react-frontend/node_modules
 dist
 dist-ssr
