@@ -10,13 +10,13 @@ function NavBar({currentUser, logout}){
                 <span id='nav-icon'>Provisions</span>
             </div>
             <div id='nav-links-container'>
-                <Link href='/home' className='nav-link'>Home</Link>
+                <Link href='/' className='nav-link'>Home</Link>
                 <Link href='/about' className='nav-link'>About</Link>
                 <Link href='/shop' className='nav-link'>Shop</Link>
 
                 {currentUser ? (
                     <>
-                        <Link href={`/users/${currentUser.username}`} className='nav-link'>Account</Link>
+                        <Link href={`/account/${currentUser.username}`} className='nav-link'>Account</Link>
                         <Link href='/' className='nav-link' onClick={logout}>Logout</Link>
                     </>
                     ):(
