@@ -6,6 +6,7 @@ const userRoutes = require('./routes/userRoutes');
 const foodsRoutes = require('./routes/foodsRoutes');
 const beerRoutes = require('./routes/beersRoutes');
 const winesRoutes = require('./routes/winesRoutes');
+const ordersRoutes = require('./routes/ordersRoutes');
 
 //enable JSON parsing
 app.use(express.json());
@@ -20,6 +21,8 @@ app.use('/foods', foodsRoutes);
 app.use('/beers', beerRoutes);
 //connection to wines routes
 app.use('/wines', winesRoutes);
+//connection to orders routes
+app.use('/orders', ordersRoutes);
 
 app.get('/', (req, res) => {
     res.status(200).send('Hello World!');
