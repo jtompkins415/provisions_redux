@@ -43,6 +43,23 @@ CREATE TABLE IF NOT EXISTS wines (
     description TEXT
 );
 
+CREATE TABLE IF NOT EXISTS orders (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id) NOT NULL,
+  total_price FLOAT NOT NULL,
+  order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS order_items (
+  id SERIAL PRIMARY KEY,
+  order_id INTEGER REFERENCES orders(id),
+  food_id INTEGER REFERENCES foods(id),
+  beer_id INTEGER REFERENCES beers(id),
+  wine_id INTEGER REFERENCES wines(id),
+  quantity INTEGER NOT NULL,
+  price INTEGER NOT NULL
+);
+
 -- SEED DATA FOR USERS TABLE
 INSERT INTO users (username, email, first_name, last_name, password, city, state)
 VALUES
@@ -66,3 +83,16 @@ INSERT INTO wines (wine_name, winery, wine_style, vintage, price, abv, descripti
 VALUES
   ('Cabernet Sauvignon', 'Vineyard Estates', 'Red Wine', 2018, 19.99, 14.0, 'Full-bodied red wine with dark fruit flavors'),
   ('Chardonnay Reserve', 'Harmony Cellars', 'White Wine', 2020, 15.99, 13.5, 'Elegant and buttery chardonnay');  
+
+-- SEED DATA FOR ORDERS TABLE
+INSERT INTO orders (user_id, total_price, order_date)
+VALUES
+  (1, 15.97, '2023-12-07 08:30:00'), -- Assuming the current date and time
+  (2, 24.98, '2023-12-07 09:45:00');
+
+-- SEED DATA FOR ORDER_ITEMS TABLE
+INSERT INTO order_items (order_id, food_id, beer_id, wine_id, quantity, price)
+VALUES
+  (1, 1, NULL, NULL, 3, 8.99),    -- Order 1: 3 Avocado at $8.99 each
+  (1, NULL, 2, NULL, 2, 6.99),     -- Order 1: 2 Stout at $6.99 each
+  (2, NULL, 2, NULL, 1, 8.99);     -- Order 2: 1 Beer at $8.99 each
