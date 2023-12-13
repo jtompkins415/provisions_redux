@@ -39,6 +39,12 @@ class ProvisionsReduxApi {
         console.log(res);
         return res.data.token;
     }
+
+    static async getOrdersByUser(user_id){
+        console.log(`REQUESTING ORDERS FOR USER ${user_id}`);
+        let res = await this.request(`orders/userOrders/${user_id}`);
+        return res.data;
+    }
 }
 
 export default ProvisionsReduxApi;
