@@ -5,6 +5,7 @@ import {decodeToken} from 'react-jwt';
 import ProvisionsReduxApi from './api/provisions-redux-api';
 import NavBar from './components/NavBar/NavBar'
 import AppRouting from './components/Routing/AppRouting';
+import CircularProgress from '@mui/material/CircularProgress';
 import './App.css'
 
 export const TOKEN_STORAGE = 'token';
@@ -34,7 +35,6 @@ function App() {
         try{
           let {username} = decodeToken(token);
           let currUser = await ProvisionsReduxApi.getCurrUser(username);
-          console.log(currUser);
           setCurrentUser(currUser);
         }catch(err){
           console.error("App getUserInfo: problem loading", err);
@@ -53,7 +53,6 @@ function App() {
    const logout = () => {
     setCurrentUser(null);
     setToken(null);
-    console.log(currentUser, token);
    }
 
   /** Handle site-wide login */
@@ -84,6 +83,10 @@ function App() {
     }
   }
 
+
+  if(!infoLoaded){
+    return (<CircularProgress />)
+}
 
   return (
     <>
