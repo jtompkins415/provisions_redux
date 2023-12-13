@@ -38,7 +38,7 @@ class Order{
         const userOrders = await db.query(`SELECT * FROM orders WHERE user_id=$1`, [user_id]);
 
         if(!userOrders || userOrders.rows.length === 0){
-            throw new Error('INVALID USER ID')
+            return [];
         }
 
         return userOrders.rows.map(order => new Order(order.id, order.user_id, order.total_price, order.order_date));
