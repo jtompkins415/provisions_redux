@@ -1,6 +1,20 @@
+import {useState, useEffect} from 'react';
+import ProvisionsReduxApi from '../../api/provisions-redux-api';
+import Orders from '../Orders/Orders';
 import './User.css';
 
 function User({currentUser}) {
+    const [orders, setOrders] = useState([]);
+
+    useEffect(() => {
+        const getOrderData = async () => {
+        const results = await ProvisionsReduxApi.getOrdersByUser(currentUser.id);
+        setOrders(results);
+    }
+        getOrderData()
+    },[currentUser.id])
+
+
     return (
         <div id="user-main-container">
             <div id="user-title-container">
@@ -12,6 +26,9 @@ function User({currentUser}) {
                 <span><b>Last Name:</b> {currentUser.last_name}</span>
                 <span><b>City:</b> {currentUser.city}</span>
                 <span><b>State:</b> {currentUser.state}</span>
+            </div>
+            <div id="user-orders-container">
+                <Orders orders={orders} />
             </div>
         </div>
     )
