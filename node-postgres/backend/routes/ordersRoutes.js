@@ -29,7 +29,7 @@ router.get('/:order_id', async function(req, res, next){
 });
 
 //GET ORDER BY USER ID
-router.get('/:user_id', async function(req, res, next){
+router.get('/userOrders/:user_id', async function(req, res, next){
     try {
         const {user_id} = req.params;
         const result = await Order.getOrdersByUser(user_id);
