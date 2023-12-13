@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import ProvisionsReduxApi from '../../api/provisions-redux-api';
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 function Shop(){
@@ -22,7 +23,11 @@ function Shop(){
         getAllItemsData()
     }, []);
 
-
+    if(!shopInfoLoaded){
+        return (
+            <CircularProgress />
+        )
+    }
 
     return (
         <div id='shop-main-container'>
