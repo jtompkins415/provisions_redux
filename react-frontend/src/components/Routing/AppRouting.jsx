@@ -6,6 +6,7 @@ import LoginForm from '../LoginForm/LoginForm';
 import SignupForm from '../SignupForm/SignupForm';
 import AccountPage from '../AccountPage/AccountPage';
 import AboutPage from '../AboutPage/AboutPage';
+import Shop from '../Shop/Shop';
 
 function AppRouting({login, signup, currentUser}){
     return (
@@ -17,6 +18,7 @@ function AppRouting({login, signup, currentUser}){
                 <Route exact path={`/account/${currentUser.username}`} element={<AccountPage currentUser={currentUser} />} />
             )}
             <Route exact path='/about' element={<AboutPage />}/>
+            <Route exact path='/shop' element={<Shop />} />
         </Routes>
     );
 }
