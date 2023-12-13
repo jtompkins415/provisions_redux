@@ -27,7 +27,7 @@ function Orders({orders}){
     return (
         <div id="orders-main-container">
             <div id="order-title-container">
-                <h2 id="order-title">Order History</h2>
+                <h3 id="order-title">Order History</h3>
             </div>
             <div id="order-details-container">
                 {orderElements}
