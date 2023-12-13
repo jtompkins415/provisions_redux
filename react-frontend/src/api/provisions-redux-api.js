@@ -45,6 +45,24 @@ class ProvisionsReduxApi {
         let res = await this.request(`orders/userOrders/${user_id}`);
         return res.data;
     }
+
+    static async getAllFoodData(){
+        console.log('REQUESTING FOOD DATA');
+        let res = await this.request('foods/');
+        return res.data;
+    }
+
+    static async getAllBeerData(){
+        console.log('REQUESTING BEER DATA');
+        let res = await this.request('beers/');
+        return res.data;
+    }
+
+    static async getAllWineData(){
+        console.log('REQUESTING WINE DATA')
+        let res = await this.request('wines/');
+        return res.data;
+    }
 }
 
 export default ProvisionsReduxApi;
