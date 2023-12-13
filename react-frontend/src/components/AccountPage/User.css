@@ -44,3 +44,8 @@
 #user-detail-container span {
     margin-top: 1rem;
 }
+
+#user-orders-container {
+    margin-top: 1rem;
+    margin-left: 1rem;
+}

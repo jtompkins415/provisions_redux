@@ -1,0 +1,13 @@
+* {
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+}
+
+#order-title {
+    font-weight: 600;
+    letter-spacing: .25rem;
+}
+
+.order-detail {
+    letter-spacing: .25rem;
+}
