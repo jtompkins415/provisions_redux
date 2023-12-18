@@ -6,6 +6,7 @@ import ProvisionsReduxApi from './api/provisions-redux-api';
 import NavBar from './components/NavBar/NavBar'
 import AppRouting from './components/Routing/AppRouting';
 import CircularProgress from '@mui/material/CircularProgress';
+import CartModel from './models/CartModel';
 import './App.css'
 
 export const TOKEN_STORAGE = 'token';
@@ -15,6 +16,10 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE);
   const [infoLoaded, setInfoLoaded] = useState(false);
+  const cart = CartModel();
+
+
+  // USER METHODS
 
    /**
    * Effect to get current user.
@@ -29,7 +34,6 @@ function App() {
    */
 
    useEffect(() => {
-    
     const getCurrUser = async () => {
       if (token){
         try{
@@ -91,8 +95,8 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <NavBar currentUser={currentUser} logout={logout}/>
-        <AppRouting login={login} signup={signup} currentUser={currentUser} />
+        <NavBar currentUser={currentUser} logout={logout} cart={cart}/>
+        <AppRouting login={login} signup={signup} currentUser={currentUser} cart={cart}/>
       </BrowserRouter>
       
     </>
