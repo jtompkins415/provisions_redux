@@ -1,7 +1,7 @@
 import {Link} from '@mui/material/';
 import './NavBar.css';
 
-function NavBar({currentUser, logout}){
+function NavBar({currentUser, logout, cart}){
 
 
     return (
@@ -13,6 +13,13 @@ function NavBar({currentUser, logout}){
                 <Link href='/' className='nav-link'>Home</Link>
                 <Link href='/about' className='nav-link'>About</Link>
                 <Link href='/shop' className='nav-link'>Shop</Link>
+
+                {cart.currentCart.length ? (
+                    <>
+                        <Link href={'/shop/cart'} className='nav-link'>Cart</Link>
+                    </>
+                ): null
+                }
 
                 {currentUser ? (
                     <>
