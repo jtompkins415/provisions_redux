@@ -1,16 +1,30 @@
 import {useState} from 'react';
-import { Button, ButtonGroup } from '@mui/material';
+import { Button} from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
 import ShopItem from './ShopItem';
+import './Shop.css';
 
 
-function Shop({foods, beers, wines}){
+function Shop({foods, beers, wines, cart}){
+    console.log(cart.currentCart);
     const [selectedCategory, setSelectedCategory] = useState('');
-    
+    const {addItemToCart} = cart;
+
     const renderItems = (items, category) => {
-        return items.map((item, index) => (
-            <ShopItem key={`${category}-${index}`} item={item} category={category} />
-        ))
+        return (
+            <>
+            <div id='category-container'>
+                <h3>{category}</h3>
+            </div>
+            <div id='items-container'>
+                {items.map((item, index) => (
+                <ShopItem key={`${category}-${index}`} item={item} category={category} addItem={addItemToCart}/>
+                ))}
+            </div>
+            </>
+            
+           
+        );  
     }
 
     const handleCategoryChange = (category) => {
@@ -32,7 +46,7 @@ function Shop({foods, beers, wines}){
             case 'wines':
                 return renderItems(wines, 'wines');
             default:
-                return [...renderItems(foods, 'foods'), ...renderItems(beers, 'beers'), ...renderItems(wines, 'wines')];
+                return [].concat(renderItems(foods, 'foods'), renderItems(beers, 'beers'), renderItems(wines, 'wines')) ;
         }
     };
 
@@ -40,12 +54,12 @@ function Shop({foods, beers, wines}){
     return (
         <div id='shop-main-container'>
             <div id='shop-nav-container'>
-                <ButtonGroup variant='text' aria-label='text button group'>
+                
                     <Button onClick={() => handleCategoryChange('all')}>All</Button>
                     <Button onClick={() => handleCategoryChange('foods')}>Food</Button>
                     <Button onClick={() => handleCategoryChange('beers')}>Beer</Button>
                     <Button onClick={() => handleCategoryChange('wines')}>Wine</Button>
-                </ButtonGroup>
+               
             </div>
             <div id='shop-items-container'>
                 {filterItemsByCategory()}
