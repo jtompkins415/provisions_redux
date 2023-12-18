@@ -1,5 +1,8 @@
+import { Button } from '@mui/material';
+import './ShopItem.css';
 
-function ShopItem({item, category}){
+
+function ShopItem({item, category, addItem}){
 
     let itemName, itemBrewery, itemCategory, itemStyle, itemWinery, itemVintage, itemAbv, itemPrice;
     
@@ -21,7 +24,7 @@ function ShopItem({item, category}){
 
     return (
         <div id="shopitem-main-container">
-            <div id="shopItem-details-container">
+            <div id="shopitem-details-container">
             <h3>{itemName}</h3>
                 {itemBrewery && <p>Brewery: {itemBrewery}</p>}
                 {itemWinery && <p>Winery: {itemWinery}</p>}
@@ -29,7 +32,10 @@ function ShopItem({item, category}){
                 {itemStyle && <p>Style: {itemStyle}</p>}
                 {itemVintage && <p>Vintage: {itemVintage}</p>}
                 {itemAbv && <p>ABV: {itemAbv}</p>}
-                {itemPrice && <p>${itemPrice}</p>}
+                {itemPrice && <p><b>${itemPrice}</b></p>}
+            </div>
+            <div id='shopitem-button-container'>
+                <Button variant="contained" onClick={() => addItem(item)}>Add to cart</Button>
             </div>
         </div>
     )

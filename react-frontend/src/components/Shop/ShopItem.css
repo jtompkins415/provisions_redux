@@ -1,0 +1,32 @@
+#shopitem-main-container {
+    width: 15%;
+    height: 55%;
+    /* border: 1px solid #1a1a1a; */
+    margin: .5rem .3rem;
+    padding: .85rem;
+    background-color: #D2ABB4;
+}
+
+#shopitem-details-container {
+    text-align: center;
+    color: #1a1a1a;
+    letter-spacing: .1rem;
+}
+
+#shopitem-button-container Button {
+    background-color: #92b597;
+    transition-property: background-color color; 
+    transition-duration: .5s;
+    transition-timing-function:  ease-in;
+    font-family: 'Raleway', sans-serif;
+    font-size:.5rem;
+    letter-spacing: .1rem;
+    color: #F9F6EE;
+}
+
+#shopitem-button-container Button:hover {
+    color: #7D3C4B;
+    background-color: #577a5c;
+}
+
+
