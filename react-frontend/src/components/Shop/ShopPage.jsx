@@ -2,8 +2,9 @@ import {useState, useEffect} from 'react';
 import ProvisionsReduxApi from '../../api/provisions-redux-api';
 import CircularProgress from '@mui/material/CircularProgress';
 import Shop from './Shop';
+import './ShopPage.css';
 
-function ShopPage(){
+function ShopPage({cart}){
     const [foods, setFoods] = useState([]);
     const [beers, setBeers] = useState([]);
     const [wines, setWines] = useState([]);
@@ -38,10 +39,10 @@ function ShopPage(){
 
         <div id='shopPage-main-container'>
             <div id='shopPage-title-container'>
-                <h2>SHOP</h2>
+                <h2>THE SHOP</h2>
             </div>
             <div id='shopPage-shop-container'>
-                <Shop foods={foods} beers={beers} wines={wines} />
+                <Shop foods={foods} beers={beers} wines={wines} cart={cart}/>
             </div>
         </div>
     )

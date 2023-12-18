@@ -1,0 +1,27 @@
+#shopPage-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+#shopPage-title-container {
+    text-align: center;
+    margin-bottom: .5rem;
+    width: 88%;
+    
+}
+
+#shopPage-title-container h2{
+    font-size: 3rem;
+    letter-spacing: .75rem;
+    font-weight: 400;
+    color: #1a1a1a;
+}
+
+#shopPage-shop-container {
+    width: 85%;
+    /* background-color: #D2ABB4; */
+    padding: 1rem;
+}
