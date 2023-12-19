@@ -3,14 +3,15 @@ import {useState, useEffect} from 'react';
 /** Custom hook for keeping state data sycned w/ localStorage */
 
 const useLocalStorage = (key, firstValue = null) => {
-    const initialValue = localStorage.getItem(key) || firstValue;
+    const storedValue = localStorage.getItem(key) 
+    const initialValue = storedValue ? JSON.parse(storedValue) : firstValue;
     const [item, setItem] = useState(initialValue);
 
-    useEffect(function setKeyInLocalStorage(){
+    useEffect(() => {
         if(item === null){
             localStorage.removeItem(key);
         } else {
-            localStorage.setItem(key, item);
+            localStorage.setItem(key, JSON.stringify(item));
         }
     }, [key, item])
 
