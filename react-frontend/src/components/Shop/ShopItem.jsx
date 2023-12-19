@@ -35,7 +35,7 @@ function ShopItem({item, category, addItem}){
                 {itemPrice && <p><b>${itemPrice}</b></p>}
             </div>
             <div id='shopitem-button-container'>
-                <Button variant="contained" onClick={() => addItem(item)}>Add to cart</Button>
+                <Button variant="contained" onClick={() => addItem({id: item.id, name: itemName, price: itemPrice})}>Add to cart</Button>
             </div>
         </div>
     )
