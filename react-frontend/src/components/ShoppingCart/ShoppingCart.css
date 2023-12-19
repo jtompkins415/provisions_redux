@@ -1,0 +1,39 @@
+#shoppingCart-main-container {
+    margin: 2rem 3rem;
+}
+
+#shoppingCart-cartTitle-container h3 {
+    letter-spacing: .25rem;
+    font-size: 2rem;
+}
+
+#shoppingCart-cartDetails-container {
+    display:inline-block;
+    flex-direction: column; 
+    justify-content: center;
+    width: 40%;
+}
+
+
+.cartItem-details {
+    display: inline-block;
+    width: 50%;
+    color: #1a1a1a;
+
+}
+
+#shoppingCart-total{
+    color: #1a1a1a;
+}
+
+
+#cartItem-removeButton {
+    background: none;
+    font-size: 1rem;
+    color: #1a1a1a;
+    transition: color .2s ease-in;
+}
+
+#cartItem-removeButton:hover{
+    color: #600909;
+}
