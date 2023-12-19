@@ -11,7 +11,7 @@ const CartModel = () => {
     };
 
     const removeItemFromCart = (itemId) => {
-        currentCart.filter(item => item.id !== itemId);
+        setCurrentCart(currentCart.filter(item => item.id !== itemId));
     }
 
     const clearCart = () => {
